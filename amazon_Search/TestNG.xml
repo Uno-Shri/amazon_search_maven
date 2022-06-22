@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name ="amazon_Search">
+
+<test name ="Amazon Search">
+<parameter name="browser" value="chrome" />
+
+<classes>
+<class name ="com.amazon_Search.testCases.TC_SearchTest_001" />
+</classes>
+
+</test>
+</suite>

@@ -9,35 +9,34 @@ import org.apache.log4j.Logger;
 	import org.testng.annotations.AfterClass;
     import org.testng.annotations.BeforeClass;
 
+import com.amazon_Search.utilities.ReadConfig;
+
 
 	public class BaseClass {
 		
-		public String baseURL = "https://www.amazon.ca/";
-		public String phonename = "Samsung Galaxy S21 5G | Factory Unlocked Android Cell Phone | US Version 5G Smartphone | Pro-Grade";
-		
+		//-------READING VALUES FROM CONFIG FILES------//
+		ReadConfig readconfig=new ReadConfig();
+		public String baseURL=readconfig.getApplicationURL();
+		public String phonename=readconfig.getPhonename();
 		public static WebDriver driver;
 		 
-		public static Logger logger;
 		
 		@BeforeClass
-		public void setup()
-		
+		public void setup()	
 		{
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers//chromedriver.exe");
-			
 			driver=new ChromeDriver();
-			
 			driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 			driver.get(baseURL);
-			
-			//PropertyConfigurator.configure("Log4j.properties");
+			driver.manage().window().maximize();
+
 		}
 		
 		@AfterClass
 		public void tearDown()
 		
 		{
-			//driver.quit();
+			driver.quit();
 		}
 
 	}

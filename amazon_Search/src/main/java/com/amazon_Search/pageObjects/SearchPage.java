@@ -42,6 +42,9 @@ public class SearchPage {
 	@CacheLookup
 	WebElement goCart;
 	
+	@FindBy(name="submit.delete.C3bcca135-dcf4-4c30-a270-f8d16eaf595f")
+	@CacheLookup
+	WebElement removeCart;
 	
 	public void setPhoneName(String pname)
 	{
@@ -75,5 +78,11 @@ public class SearchPage {
 		// TODO Auto-generated method stub
 		goCart.click();
 	}
+	
+	public void removeCart()
+	{
+		removeCart.click();
+	}
+	
 }
 	
